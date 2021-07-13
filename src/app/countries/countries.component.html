@@ -1,11 +1,10 @@
 
 <ul class="countries">
-    <li *ngFor="let country of countries">
+    <li class="country" *ngFor="let country of countries">
       <a routerLink="/country/{{country.name}}">
         <!-- <img ng-src="{{ country.flag }}"> -->
         <h3>{{country.name}}</h3>
         <p>capital: {{country.capital}}</p>
-        <!-- <span class="badge">{{country.id}}</span> {{country.name}} -->
       </a>
     </li>
   </ul>
