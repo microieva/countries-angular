@@ -12,7 +12,8 @@ import { Country } from '../country';
   styleUrls: ['./country-detail.component.css']
 })
 export class CountryDetailComponent implements OnInit {
-  @Input() country?: Country;
+  //@Input() country?: Country;
+  country: Country | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +24,11 @@ export class CountryDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getCountry()
     
-  }
+  // this.route.queryParams.subscribe(params => {
+  //   this.name = params['name'];
+  // });
+}
+  
 
   getCountry(): void {
     const name = this.route.snapshot.paramMap.get('name');

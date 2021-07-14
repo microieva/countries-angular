@@ -1,1 +1,8 @@
-<p>country-detail works!</p>
+<p style="color: blue;">country-detail works!</p>
+<div>
+    <p style="color: green;">country-detail works!</p>
+    
+    <h1 *ngIf="country">{{country.name}}</h1>
+    <button (click)="goBack()">go back</button>
+</div>
+

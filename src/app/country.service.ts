@@ -19,18 +19,18 @@ export class CountryService {
   
 
   getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>(this.countriesUrl)
+    const countries = this.http.get<Country[]>(this.countriesUrl)
       .pipe(
         //tap(_=> this.log('fetched countries')),
         //catchError(this.handleError<Country[]>('getCountries', []))
       )
-    
+    return countries
   }
 
   getCountry(name: string | null): Observable<Country> {
     const url = `${this.countriesUrl}/${name}`;
-    return this.http.get<Country>(url)
-      
+    const country = this.http.get<Country>(url)
+    return country 
   }
 
   // getCountry(name: string | null): Observable<Country> {
