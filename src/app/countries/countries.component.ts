@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Country } from '../country';
 import { CountryService } from '../country.service';
@@ -12,14 +13,19 @@ import { CountryService } from '../country.service';
 export class CountriesComponent implements OnInit {
 
   constructor( private countryService: CountryService ) { }
-  countries: Country[] = []
+  @Input() countries: Country[] = []
+  
+  
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getCountries()
   }
 
-  getCountries(): void {
+  getCountries () {
     this.countryService.getCountries()
-        .subscribe(countries => this.countries = countries);
+     .subscribe((data: Country[]) => {
+        this.countries = data; 
+        console.log("COUNTRIES: ", this.countries)
+      });
   }
 }
