@@ -2,7 +2,7 @@
 <ul class="countries">
     <li class="country" *ngFor="let country of countries">
       <a routerLink="/country/{{country.name}}">
-        <!-- <img ng-src="{{ country.flag }}"> -->
+        <img class="flag" src="{{ country.flag }}"> 
         <h3>{{country.name}}</h3>
         <p>capital: {{country.capital}}</p>
       </a>

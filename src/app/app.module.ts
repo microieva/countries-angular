@@ -22,7 +22,7 @@ import { CountryService } from './country.service';
     HttpClientModule,
     
   ],
-  providers: [CountryService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

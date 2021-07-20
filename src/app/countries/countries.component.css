@@ -6,7 +6,9 @@
 }
 
 .country {
-    
+    min-height: 5rem;
+    max-width: 6rem;
+    text-align: center;
     border: 1px solid black;
     border-radius: 3px;
     margin: 1rem;
@@ -19,4 +21,9 @@
 
 li {
     color: rgb(46, 45, 45);
+}
+
+.flag {
+    height: 3rem;
+    max-width: 5rem;
 }

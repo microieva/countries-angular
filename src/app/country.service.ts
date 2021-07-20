@@ -10,39 +10,26 @@ import { Country } from './country';
   providedIn: 'root'
 })
 export class CountryService {
-  countries: Country[]=[];
+  //countries: Country[]=[];
+  //country: Country;
+
   constructor(
     private http: HttpClient,
     
   ) { }
-  private countriesUrl = "https://restcountries.eu/rest/v2/all"
-  
+
+  private countriesUrl = "https://restcountries.eu/rest/v2"
 
   getCountries():Observable<Country[]> {
-
-    return this.http.get<Country[]>(this.countriesUrl)
-    // .subscribe(data => {
-    //     this.countries = data;
-    //      console.log("data:", data)
-    //      console.log("countries: ", this.countries)
-    // })
-    //console.log("countries: ", this.countries)
-    //return of(this.countries)
-
+    const url = `${this.countriesUrl}/all`
+    return this.http.get<Country[]>(url)
+   
   }
-    
-
-  // getCountry(name: string | null): Observable<Country> {
-  //   const url = `${this.countriesUrl}/${name}`;
-  //   const country = this.http.get<Country>(url)
-  //   console.log("country: ", country)
-  //   return country 
-  //}
 
   getCountry(name: string | null): Observable<Country> {
-    const country = this.countries.find(c => c.name === name)!;
-    console.log("country: ", country)
-    return of(country);
+    const url = `${this.countriesUrl}/name/${name}`;
+    return this.http.get<Country>(url)
+
   }
   
 }
