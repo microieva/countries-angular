@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { switchMap } from 'rxjs/operators';
+import { first, switchMap } from 'rxjs/operators';
 
 import { CountryService } from '../country.service';
 import { Country } from '../country';
+
 
 @Component({
   selector: 'app-country-detail',
@@ -12,14 +13,12 @@ import { Country } from '../country';
   styleUrls: ['./country-detail.component.css']
 })
 export class CountryDetailComponent implements OnInit {
-  @Input()
-  country?: Country;
-  //country: Country | undefined;
+  country: Country | undefined
 
   constructor(
     private route: ActivatedRoute,
     private countryService: CountryService,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit(): void {
@@ -27,10 +26,13 @@ export class CountryDetailComponent implements OnInit {
 }
   
 
-  getCountry(): void {
+  getCountry() : void {
     const name = this.route.snapshot.paramMap.get('name');
     this.countryService.getCountry(name)
-      .subscribe((country: Country) => this.country = country);  
+      .subscribe((country) => {
+        this.country = country.find(c => c.name)
+        console.log("COUNTRY: ", this.country)
+      })
   }
 
   goBack(): void {

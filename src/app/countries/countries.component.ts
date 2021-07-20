@@ -21,10 +21,10 @@ export class CountriesComponent implements OnInit {
     this.getCountries()
   }
 
-  getCountries () {
+  getCountries () : void {
     this.countryService.getCountries()
-     .subscribe((data: Country[]) => {
-        this.countries = data; 
+     .subscribe(countries => {
+        this.countries = countries; 
         console.log("COUNTRIES: ", this.countries)
       });
   }
