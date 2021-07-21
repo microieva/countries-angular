@@ -1,3 +1,20 @@
+
+.search-banner {
+    text-align: center;
+}
+
+input {
+    border: none;
+    width: 90%;
+    height: 2rem;
+    padding: 0 2rem;
+    border-bottom: 1px solid lightslategray;
+}
+
+input:active input:focus{
+    border: none;
+}
+
 .countries {
     list-style: none;
     display: flex;

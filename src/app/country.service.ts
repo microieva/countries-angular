@@ -31,6 +31,20 @@ export class CountryService {
      
   }
 
+  /* GET countries whose name contains search term */
+  searchCountries(term: string): Observable<Country[]> {
+    if (!term.trim()) {
+      // if not search term, return empty countries array.
+      return of([]);
+    }
+    return this.http.get<Country[]>(`${this.countriesUrl}/name/${term}`).pipe(
+      // tap(x => x.length ?
+      //    this.log(`found countries matching "${term}"`) :
+      //    this.log(`no countries matching "${term}"`)),
+      catchError(this.handleError<Country[]>('searchCountries', []))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

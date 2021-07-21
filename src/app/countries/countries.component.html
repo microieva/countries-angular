@@ -1,11 +1,15 @@
+<!-- <app-country-search></app-country-search> -->
+<div class="search-banner">
+  <input class="search-banner" [(ngModel)]="searchText"/>
+</div>
 
 <ul class="countries">
-    <li class="country" *ngFor="let country of countries">
+    <li class="country-card" *ngFor="let country of countries">
       <a routerLink="/country/{{country.name}}">
         <img class="flag" src="{{ country.flag }}"> 
         <h3>{{country.name}}</h3>
         <p>capital: {{country.capital}}</p>
       </a>
     </li>
-  </ul>
+</ul>
   

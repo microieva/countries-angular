@@ -1,9 +1,8 @@
 
-<div *ngIf="country">
-    <p style="color: green;">country-detail works!</p>
+<div *ngIf="country" class="country-view">
     
-    <h1 style="color: green;">Country: {{country.name}}</h1>
-    <h3 style="color: green;">Population: {{country.population}}</h3>
+    <h1>Country: {{country.name}}</h1>
+    <h3>Population: {{country.population | number}}</h3>
     
 </div>
 

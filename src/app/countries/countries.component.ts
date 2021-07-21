@@ -14,7 +14,7 @@ export class CountriesComponent implements OnInit {
 
   constructor( private countryService: CountryService ) { }
   @Input() countries: Country[] = []
-  
+  searchtext: string = ""
   
 
   ngOnInit() {
