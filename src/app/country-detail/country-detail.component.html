@@ -1,6 +1,6 @@
 
 <div *ngIf="country" class="country-view">
-    
+    <img class="flag" src="{{country.flag}}" >
     <h1>Country: {{country.name}}</h1>
     <h3>Population: {{country.population | number}}</h3>
     
