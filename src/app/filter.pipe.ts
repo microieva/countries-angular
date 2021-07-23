@@ -1,26 +1,27 @@
-
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'appFilter' })
+import { Country } from './country';
+
+@Pipe({ name: 'countryFilter' })
 export class FilterPipe implements PipeTransform {
   /**
    * Transform
    *
-   * @param {any[]} items
+   * @param {Country[]} countries
    * @param {string} searchText
-   * @returns {any[]}
+   * @returns {Country[]}
    */
-  transform(items: any[], searchText: string): any[] {
-    if (!items) {
+  transform(countries: Country[], searchText: string): any[] {
+    if (!countries) {
       return [];
     }
     if (!searchText) {
-      return items;
+      return countries;
     }
     searchText = searchText.toLocaleLowerCase();
 
-    return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+    return countries.filter(country => {
+      return country.name.toLocaleLowerCase().includes(searchText);
     });
   }
 }

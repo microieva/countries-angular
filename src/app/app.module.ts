@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CountriesComponent } from './countries/countries.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { CountryService } from './country.service';
-import { CountrySearchComponent } from './country-search/country-search.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 
@@ -15,7 +14,6 @@ import { FilterPipe } from './filter.pipe';
     AppComponent,
     CountriesComponent,
     CountryDetailComponent,
-    //CountrySearchComponent,
     FilterPipe
   ],
   imports: [
